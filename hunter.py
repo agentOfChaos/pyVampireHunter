@@ -39,7 +39,13 @@ def navigator(categories, selector):
     while len(obj_level) > 0:
         print("Use a number to select one of the following (0 to navigate up)")
         keylist = printLevel(obj_level[-1])
-        navnum = int(input("> "))
+        input_correct = False
+        while not input_correct:
+            try:
+                navnum = int(input("> "))
+                input_correct = True
+            except Exception:
+                pass
         if navnum <= 0:
             obj_level.pop()
             shadow_nav.pop()
